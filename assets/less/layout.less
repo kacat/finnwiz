@@ -1,0 +1,98 @@
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: @backgroundGray;
+  font-family: "Cuprum", Helvetica, Arial, sans-serif;
+  color: @main-color;
+  font-size: 14px;
+}
+
+input, select, textarea{
+  font-family: "Cuprum", Helvetica, Arial, sans-serif;
+}
+
+#wrapper{
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+#header{
+  //position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: @headerBackground;
+  border-bottom: 1px dotted darken(@headerBackground,10%);
+  
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  text-shadow: -1px -1px 0 darken(@headerBackground,10%);
+  
+  text-align: center;
+  color: @white;
+}
+
+#header h1{
+  padding: 0;
+  margin: 0;
+}
+
+#header .inside{  
+  width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#page{
+  margin-right: auto;
+  margin-left: auto;
+  .rounded;
+  width: 900px;
+  
+  border: 1px solid @pageBorder;
+  background: @pageBackground;
+  
+  box-shadow: 5px 5px 20px rgba(0,0,0,.3);
+}
+
+#page h1{
+  padding: 10px 10px;
+  margin: 0px;
+  background-color: rgba(0,0,0,.2);
+  border-bottom: 1px dotted #999;
+  
+  color: lighten(@main-color, 10%);
+  text-shadow: 1px 1px 0 @white;
+}
+
+.content{
+  padding: 0px 10px;
+}
+
+code{
+  background-color: @lightBlue;
+  .rounded(2px);
+  padding: 5px;
+}
+
+
+#footer{
+  position: absolute;
+  bottom: 0px;
+  
+  background-color: @footerBackground;
+  color: @footerColor;
+  
+  width: 100%;
+}
+
+#footer .inside{
+  width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+

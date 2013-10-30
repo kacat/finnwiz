@@ -1,0 +1,42 @@
+
+input:invalid{
+  //border-color: @inputInvalidBorder;
+  //box-shadow: 0 0 5px @inputInvalidBorder;
+}
+
+
+input{
+  padding: 10px 6px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-size: 14px;
+  .rounded;
+  .box-sizing(border-box);
+  
+  &:hover, &:focus{
+    background-color: @inputBackground;
+    border-color: @inputBorder;
+  }
+  
+  &.medium-input{
+    width: 200px;
+  }
+  
+  &.full-length{
+    width: 100%;
+  }
+}
+
+input, select{
+  cursor: pointer;
+}
+
+textarea{
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  .rounded;
+  
+  .box-sizing(border-box);
+}
+

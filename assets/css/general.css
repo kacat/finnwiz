@@ -1,0 +1,129 @@
+input {
+  padding: 10px 6px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-size: 14px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input:hover,
+input:focus {
+  background-color: rgba(220, 220, 220, 0.6);
+  border-color: #cccccc;
+}
+input.medium-input {
+  width: 200px;
+}
+input.full-length {
+  width: 100%;
+}
+input,
+select {
+  cursor: pointer;
+}
+textarea {
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f1f1f1;
+  font-family: "Cuprum", Helvetica, Arial, sans-serif;
+  color: #333333;
+  font-size: 14px;
+}
+input,
+select,
+textarea {
+  font-family: "Cuprum", Helvetica, Arial, sans-serif;
+}
+#wrapper {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+#header {
+  top: 0px;
+  width: 100%;
+  background-color: #999999;
+  border-bottom: 1px dotted #808080;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-shadow: -1px -1px 0 #808080;
+  text-align: center;
+  color: #ffffff;
+}
+#header h1 {
+  padding: 0;
+  margin: 0;
+}
+#header .inside {
+  width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+#page {
+  margin-right: auto;
+  margin-left: auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  width: 900px;
+  border: 1px solid #999999;
+  background: #ffffff;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+#page h1 {
+  padding: 10px 10px;
+  margin: 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px dotted #999;
+  color: #4d4d4d;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+.content {
+  padding: 0px 10px;
+}
+code {
+  background-color: #d9eef2;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  padding: 5px;
+}
+#footer {
+  position: absolute;
+  bottom: 0px;
+  background-color: #333333;
+  color: #ffffff;
+  width: 100%;
+}
+#footer .inside {
+  width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
