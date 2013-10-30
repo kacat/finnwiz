@@ -7,7 +7,7 @@ input:invalid{
 
 input{
   padding: 10px 6px;
-  border: 1px solid transparent;
+  border: 1px solid @inputBorder;
   background-color: transparent;
   font-size: 14px;
   .rounded;
@@ -29,6 +29,17 @@ input{
 
 input, select{
   cursor: pointer;
+}
+
+input[type="submit"], input[type="button"]{
+  background-color: @inputButtonBackground;
+  color: @inputButtonColor;
+  border-color: @inputButtonBorder;
+  text-shadow: -1px -1px 0 @inputButtonBorder;
+  
+  &:hover{
+    background-color: lighten(@inputButtonBackground, 20);
+  }
 }
 
 textarea{

@@ -119,29 +119,44 @@ class Main extends CI_Controller {
 		$this->_footer();
 	}
 
-	public function word_bulk_uploader(){
+	public function word_bulk_uploader($actword = ''){
 		//$header_data = array('js'=>array('word-uploader.js'));
 		
 		$this->load->model('word');
-		
 		$pagedata = array();
 		
 		if($this->input->post()){
 			
 			//echo print_array($this->input->post());
 			
-			$refid = 0;
+			$refid = ($this->input->post('id'))? $this->input->post('id'):0;
+			
+			if ($refid) $pagedata['word_updated'] = TRUE;
+			else $pagedata['word_added'] = TRUE;
 			
 			foreach($this->input->post('word') as $word){
 				if ($word['data']['word']){
-					if ($refid) $word['data']['ref_id'] = $refid;
-					$last_id = $this->word->add($word['data'], $word['flags']);
-					if (!$refid) $refid = $last_id;
+					if ($word['data']['id']){
+						$this->word->update($word['data']['id'],$word['data'],$word['flags']);
+					}else{
+						if ($refid) $word['data']['ref_id'] = $refid;
+						//$last_id = $this->word->add($word['data'], $word['flags']);
+						//if (!$refid) $refid = $last_id;
+					}
 				}
 			}
+
+
 			
-			$pagedata['word_added'] = TRUE;
 		}
+
+		$word = FALSE;
+		if ($actword){
+			$actid = $this->word->findID($actword);
+			if ($actid) $word = $this->word->load($actid);
+		}
+		
+		$pagedata['word'] = $word;
 		
 		$this->_header();
 		$this->load->view('word-bulk-uploader-view', $pagedata);

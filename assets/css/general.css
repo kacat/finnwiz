@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial');
 input {
   padding: 10px 6px;
-  border: 1px solid transparent;
+  border: 1px solid #cccccc;
   background-color: transparent;
   font-size: 14px;
   -webkit-border-radius: 5px;
@@ -27,6 +28,17 @@ input,
 select {
   cursor: pointer;
 }
+input[type="submit"],
+input[type="button"] {
+  background-color: #0054a6;
+  color: #ffffff;
+  border-color: #003a73;
+  text-shadow: -1px -1px 0 #003a73;
+}
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #0d87ff;
+}
 textarea {
   padding: 10px;
   width: 100%;
@@ -49,14 +61,14 @@ body {
 }
 body {
   background-color: #f1f1f1;
-  font-family: "Cuprum", Helvetica, Arial, sans-serif;
+  font-family: "Questrial", Helvetica, Arial, sans-serif;
   color: #333333;
   font-size: 14px;
 }
 input,
 select,
 textarea {
-  font-family: "Cuprum", Helvetica, Arial, sans-serif;
+  font-family: "Questrial", Helvetica, Arial, sans-serif;
 }
 #wrapper {
   width: 100%;

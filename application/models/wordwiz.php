@@ -74,6 +74,9 @@ class Wordwiz extends CI_Model {
 		
 		else if($this->substr_unicode($word, -2, 2) == 'as'){
 			$genitive = $this->substr_unicode($stem, 0, $this->strlen_unicode($stem)-1).'an';
+			
+			//excepitions
+			if($word == 'paras') $genitive = 'parhaan';
 		}
 		
 		else if($this->substr_unicode($word, -2, 2) == 'äs'){
@@ -99,6 +102,9 @@ class Wordwiz extends CI_Model {
 		
 		else if($this->substr_unicode($word, -2, 2) == 'es'){
 			$genitive = $this->substr_unicode($stem, 0, $this->strlen_unicode($stem)-1).'ksen';
+			
+			//excepitions
+			if($word == 'mies') $genitive = 'miehen';
 		}
 		
 		else if($this->substr_unicode($word, -3, 3) == 'tar'){
@@ -111,6 +117,10 @@ class Wordwiz extends CI_Model {
 		
 		else if (in_array($this->substr_unicode($word, -2, 2), array('el','en','er','ar'))){
 			$genitive = $stem.'en';
+		}
+		
+		else if ($this->substr_unicode($word, -1, 1) == 'n'){
+			$genitive = $this->substr_unicode($stem, 0, $this->strlen_unicode($stem)-1).'men';
 		}
 		
 		else{
@@ -438,9 +448,9 @@ class Wordwiz extends CI_Model {
 		else if(substr($grp, -2, 2) == 'rk') $degraded = $this->substr_replace_unicode($word, 'r', $ind-1, 2);
 		else if(substr($grp, -2, 2) == 'lk') $degraded = $this->substr_replace_unicode($word, 'l', $ind-1, 2);
 		
-		else if(substr($grp, -1, 1) == 't') $degraded = $this->substr_replace_unicode($word, 'd', $ind, 1);
-		else if(substr($grp, -1, 1) == 'p') $degraded = $this->substr_replace_unicode($word, 'v', $ind, 1);
-		else if(substr($grp, -1, 1) == 'k') $degraded = $this->substr_replace_unicode($word, 'v', $ind, 1);
+		else if(substr($grp, -1, 1) == 't' && $this->isVowel($this->substr_unicode($word, $ind-1, 1))) $degraded = $this->substr_replace_unicode($word, 'd', $ind, 1);
+		else if(substr($grp, -1, 1) == 'p' && $this->isVowel($this->substr_unicode($word, $ind-1, 1))) $degraded = $this->substr_replace_unicode($word, 'v', $ind, 1);
+		else if(substr($grp, -1, 1) == 'k' && $this->isVowel($this->substr_unicode($word, $ind-1, 1))) $degraded = $this->substr_replace_unicode($word, 'v', $ind, 1);
 		
 		return $degraded;
 	}

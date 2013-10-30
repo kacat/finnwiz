@@ -1,5 +1,5 @@
 <div id="page">
-	<h1>GRAWIZ</h1>
+	<h1>Finnwiz 1.0</h1>
 
 	<div class="content">
 		<ul>

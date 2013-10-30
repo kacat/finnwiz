@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>GraWIZ</title>
+		<title>Finnwiz 1.0</title>
 		
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<?php foreach($js_files as $js_file){ ?>
@@ -18,7 +18,7 @@
 		<div id="wrapper">
 			<div id="header">
 				<div class="inside">
-					<h1>GraWiz</h1>
+					<h1>Finnwiz 1.0</h1>
 				</div>
 			</div>
 			<div style="height: 70px;"></div>

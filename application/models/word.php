@@ -21,13 +21,31 @@ class Word extends CI_Model {
 			$query = $this->db->query('SELECT T.name, T.definition FROM dictionary_flags F INNER JOIN dictionary_flag_types T ON T.id = F.flag_id WHERE F.word_id = ? AND F.active = 1 AND T.active = 1',array('word_id'=>$id));
 			
 			if($query) {
-				/*$flagholder = array();
-				foreach($query->result() as $flag){
-					$flagholder[$flag->name] = 1;
-				}
-				$item->flags = (object) $flagholder;*/
 				$item->flags = $query->result();
 			}else $item->flags = FALSE;
+			
+			if (!$item->ref_id){
+				$inf_query = $this->db->query('SELECT D.id FROM dictionary D WHERE D.ref_id = ? AND D.active = 1',array('id'=>$id));
+				
+				if($inf_query) {
+					$inf_holder = array();
+					foreach($inf_query->result() as $inflection){
+						$inflection_data = $this->load($inflection->id, TRUE);
+						$index = '';
+						foreach($inflection_data->flags as $flag){
+							$index .= '_'.$flag->name;
+						}
+						
+						$inf_holder[$index] = $inflection_data;
+					}
+					
+					$item->inflections = (object) $inf_holder;
+					
+				}else{
+					$item->inflections = FALSE;
+				}
+			}
+			
 		}
 		
 		if ($return) return $item;
@@ -50,11 +68,6 @@ class Word extends CI_Model {
 			//add flags
 			$query = $this->db->query('SELECT T.name, T.definition FROM dictionary_flags F INNER JOIN dictionary_flag_types T ON T.id = F.flag_id WHERE F.word_id = ? AND F.active = 1 AND T.active = 1',array('word_id'=>$row->id));
 			if($query) {
-				//$flagholder = array();
-				//foreach($query->result() as $flag){
-					//$flagholder[] = ;
-				//}
-				//$item->flags = (object) $flagholder;
 				$item->flags = $query->result();
 			}else $item->flags = FALSE;
 			
@@ -91,6 +104,14 @@ class Word extends CI_Model {
 		}
 		
 		return $this;
+	}
+
+	function findID($word){
+		$query = $this->db->query('SELECT id FROM dictionary WHERE word LIKE ? AND active = 1 AND ref_id = 0',array('word'=>$word));
+		
+		if(!$query) return FALSE;
+		
+		return $query->row()->id;
 	}
 	
 	function add($data, $flags){
