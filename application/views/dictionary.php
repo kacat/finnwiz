@@ -118,7 +118,7 @@
 							<?php foreach($item->flags as $flag){ ?>
 								
 									<?php if($flag->definition){ ?>
-										<a href="javascript:void(0)" title="<?= clean_string($flag->definition) ?>"><?= $flag->name ?></a>
+										<a class="hint" title="<?= clean_string($flag->definition) ?>"><?= $flag->name ?></a>
 									<?php }else{ ?>
 										<?= $flag->name ?>
 									<?php } ?> 

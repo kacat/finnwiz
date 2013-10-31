@@ -2554,6 +2554,7 @@ textarea {
   float: right;
 }
 #header h1 {
+  text-shadow: -1px -1px 0 #003a73;
   font-size: 24px;
   padding: 5px 0px;
   margin: 0px;
@@ -2671,6 +2672,9 @@ a.button:hover {
 a.button span {
   display: inline-block;
   margin-right: 5px;
+}
+a.hint {
+  cursor: pointer;
 }
 a.button-hint {
   display: inline-block;
