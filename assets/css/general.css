@@ -2741,3 +2741,13 @@ hr {
   font-style: italic;
   text-shadow: none;
 }
+.suffixer h2 span.cases {
+  color: #333333;
+  font-size: 14px;
+  text-shadow: none;
+}
+.suffixer h2 span.text {
+  color: #999999;
+  font-size: 12px;
+  text-shadow: none;
+}

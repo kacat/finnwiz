@@ -25,74 +25,61 @@
 					array('type'=>'input','input'=>array('case'=>'nominative','other'=>'plural')),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'accusative')),
-					array('type'=>'hint','text'=>'Accusative case'),
+					array('type'=>'input','input'=>array('case'=>'accusative'),'hint'=>'Accusative case'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'genitive')),
+					array('type'=>'input','input'=>array('case'=>'genitive'), 'hint'=>'Genitive case [-n]'),
 					array('type'=>'input','input'=>array('case'=>'genitive','other'=>'plural')),
-					array('type'=>'hint','text'=>'Genitive case [-n]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'partitive')),
+					array('type'=>'input','input'=>array('case'=>'partitive'), 'hint'=>'Partitive case [-a/ä, -ta/tä, -tta/-ttä]'),
 					array('type'=>'input','input'=>array('case'=>'partitive','other'=>'plural')),
-					array('type'=>'hint','text'=>'Partitive case [-a/ä, -ta/tä, -tta/-ttä]'),
 					
 					array('type'=>'title','title'=>'Locative Cases'),
 					
-					array('type'=>'input','input'=>array('case'=>'illative')),
+					array('type'=>'input','input'=>array('case'=>'illative'),'hint'=>'Illative case (into) [-Vn, -hVn]'),
 					array('type'=>'input','input'=>array('case'=>'illative','other'=>'plural')),
-					array('type'=>'hint','text'=>'Illative case (into) [-Vn, -hVn]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'inessive')),
+					array('type'=>'input','input'=>array('case'=>'inessive'),'hint'=>'Inessive case (in, inside) [-ssa/ssä]'),
 					array('type'=>'input','input'=>array('case'=>'inessive','other'=>'plural')),
-					array('type'=>'hint','text'=>'Inessive case (in, inside) [-ssa/ssä]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'elative')),
+					array('type'=>'input','input'=>array('case'=>'elative'),'hint'=>'Elative case (out of) [-sta/stä]'),
 					array('type'=>'input','input'=>array('case'=>'elative','other'=>'plural')),
-					array('type'=>'hint','text'=>'Elative case (out of) [-sta/stä]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'allative')),
+					array('type'=>'input','input'=>array('case'=>'allative'),'hint'=>'Allative case (onto) [-lle]'),
 					array('type'=>'input','input'=>array('case'=>'allative','other'=>'plural')),
-					array('type'=>'hint','text'=>'Allative case (onto) [-lle]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'adessive')),
+					array('type'=>'input','input'=>array('case'=>'adessive'),'hint'=>'Adessive case (on) [-lla/llä]'),
 					array('type'=>'input','input'=>array('case'=>'adessive','other'=>'plural')),
-					array('type'=>'hint','text'=>'Adessive case (on) [-lla/llä]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'ablative')),
+					array('type'=>'input','input'=>array('case'=>'ablative'),'hint'=>'Ablative case (from) [-lta/ltä]'),
 					array('type'=>'input','input'=>array('case'=>'ablative','other'=>'plural')),
-					array('type'=>'hint','text'=>'Ablative case (from) [-lta/ltä]'),
 					array('type'=>'sep'),
 					
 					array('type'=>'title','title'=>'Marginal Cases'),
 					
-					array('type'=>'input','input'=>array('case'=>'essive')),
+					array('type'=>'input','input'=>array('case'=>'essive'),'hint'=>'Essive case (as stg) [-na]'),
 					array('type'=>'input','input'=>array('case'=>'essive','other'=>'plural')),
-					array('type'=>'hint','text'=>'Essive case (as stg) [-na]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'translative')),
+					array('type'=>'input','input'=>array('case'=>'translative'),'hint'=>'Translative case (become) [-ksi]'),
 					array('type'=>'input','input'=>array('case'=>'translative','other'=>'plural')),
-					array('type'=>'hint','text'=>'TRanslative case (become) [-ksi]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'abessive')),
+					array('type'=>'input','input'=>array('case'=>'abessive'),'hint'=>'Abessive case (without) [-tta/ttä]'),
 					array('type'=>'input','input'=>array('case'=>'abessive','other'=>'plural')),
-					array('type'=>'hint','text'=>'Abessive case (without) [-tta/ttä]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'instructive','other'=>'plural')),
-					array('type'=>'hint','text'=>'Instructive case () [-n]'),
+					array('type'=>'input','input'=>array('case'=>'instructive','other'=>'plural'),'hint'=>'Instructive case () [-n]'),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'comitative','other'=>'plural')),
-					array('type'=>'text','text'=>'- (+possessive suffix)'),
+					array('type'=>'input','input'=>array('case'=>'comitative','other'=>'plural'),'text'=>'- (+possessive suffix)<br />','hint'=>'Comitative case () [-n]'),
+					
 					
 				)
 			?>
@@ -130,11 +117,6 @@
 					<fieldset>
 						<legend><span class="entypo-book-open"></span><?= $listitem['title'] ?></legend>
 					
-				<?php }else if($listitem['type'] == 'text'){ ?>
-					<?= $listitem['text'] ?> 
-					
-				<?php }else if($listitem['type'] == 'hint'){ ?>
-					<a class="button-hint" title="<?= $listitem['text'] ?>"></a> 
 				<?php }else{ ?>
 					
 					<?php $i++; ?>
@@ -147,6 +129,14 @@
 					<?php } ?>
 					<input type="hidden" name="word[<?= $i ?>][data][id]" value="<?= (isset($infl->{$index}->id))? $infl->{$index}->id:0 ?>" />
 					<input class="medium-input" type="text" name="word[<?= $i ?>][data][word]" value="<?= (isset($infl->{$index}->word))? $infl->{$index}->word:'' ?>" placeholder="<?= $index_name ?>" />
+					<?php if(isset($listitem['text'])){ ?>
+						<?= $listitem['text'] ?> 
+					<?php } ?>
+					<input class="medium-input" type="text" name="word[<?= $i ?>][data][translation]" value="<?= (isset($infl->{$index}->translation))? $infl->{$index}->translation:'' ?>" placeholder="in english" />
+					<?php if(isset($listitem['hint'])){ ?>
+						<a class="button-hint" title="<?= $listitem['hint'] ?>"></a> 
+					<?php } ?>
+					<br />
 					
 				<?php } ?>
 				

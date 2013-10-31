@@ -28,7 +28,6 @@ class Main extends CI_Controller {
 		
 		//MAIN JS
 		$js_files = array(
-			js_asset('config.js'),
 			js_asset('general.js')
 		);
 		
@@ -88,18 +87,16 @@ class Main extends CI_Controller {
 	public function suffixer($id = 0){
 		
 		$this->load->model('suffixer');
+		$pagedata = array();
 		
 		if (!$id) $id = $this->suffixer->get_random_word();
 		
-		$test = $this->suffixer->load($id);
+		$word = $this->suffixer->load($id);
 		
-		$pagedata['orig'] = $test->word;
-		$pagedata['id'] = $test->id;
-		$pagedata['case'] = $test->case;
+		$pagedata['word'] = $word;
 		
 		$header_data = array('js'=>array('suffixer.js'));
 		$this->_header($header_data);
-		
 		
 		$this->load->view('suffixer-view', $pagedata);
 		$this->_footer();

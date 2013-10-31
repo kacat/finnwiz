@@ -9,4 +9,12 @@ class Js_scripts extends Ajax_Controller {
 		$this->json_data['error'] = 0;
 		$this->json_data['info'] = $resp;
 	}
+	
+	public function check_suffix(){
+		$this->load->model('suffixer');
+		$resp = $this->suffixer->check_suffix();
+		//echo json_encode(array('info'=>$resp));
+		$this->json_data['error'] = 0;
+		$this->json_data['info'] = $resp;
+	}
 }
