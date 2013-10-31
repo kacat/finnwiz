@@ -29,7 +29,7 @@ class Main extends CI_Controller {
 		//MAIN JS
 		$js_files = array(
 			js_asset('config.js'),
-			js_asset('basic.js')
+			js_asset('general.js')
 		);
 		
 		//ADDITIONAL JS
@@ -140,13 +140,14 @@ class Main extends CI_Controller {
 						$this->word->update($word['data']['id'],$word['data'],$word['flags']);
 					}else{
 						if ($refid) $word['data']['ref_id'] = $refid;
-						//$last_id = $this->word->add($word['data'], $word['flags']);
-						//if (!$refid) $refid = $last_id;
+						$last_id = $this->word->add($word['data'], $word['flags']);
+						if (!$refid) {
+							$refid = $last_id;
+							$actword = $word['data']['word'];
+						}
 					}
 				}
 			}
-
-
 			
 		}
 

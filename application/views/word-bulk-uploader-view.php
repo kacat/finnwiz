@@ -83,7 +83,11 @@
 			?>
 			
 			<p>
-				<input class="medium-input" type="text" name="word[<?= $i ?>][data][word]" value="<?= ($word)? $word->item->word:'' ?>" placeholder="word" required /><br />
+				<input class="medium-input" type="text" name="word[<?= $i ?>][data][word]" value="<?= ($word)? $word->item->word:'' ?>" placeholder="word" required />
+				<?php if($word){ ?>
+					<a class="button" href="<?= site_url('word-bulk-uploader') ?>">reset</a>
+				<?php } ?>
+				<br />
 				<textarea class="medium-input" name="word[<?= $i ?>][data][translation]"  placeholder="in english" required><?= ($word)? $word->item->translation:'' ?></textarea>
 				<input type="hidden" name="word[<?= $i ?>][flags][case]" value="nominative" />
 				<input type="hidden" name="word[<?= $i ?>][data][id]" value="<?= ($word)? $word->id:0 ?>" />

@@ -1,4 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial');
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hidden {
+  dislay: none;
+}
 input {
   padding: 10px 6px;
   border: 1px solid #cccccc;
@@ -138,4 +153,23 @@ code {
   width: 900px;
   margin: 0 auto;
   padding: 10px;
+}
+#hintbox {
+  position: absolute;
+  max-width: 250px;
+}
+#hintbox .hintbox-wrapper {
+  background-color: #ffffff;
+  border-color: #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  font-size: 90%;
+  line-height: 18px;
 }

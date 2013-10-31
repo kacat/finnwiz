@@ -157,6 +157,22 @@ class Word extends CI_Model {
 			return $this->db->insert_id();
 		}
 	}
+	
+	function get_letters(){
+		$query = $this->db->query('SELECT DISTINCT LEFT(word, 1) AS letter FROM dictionary WHERE ref_id = 0 ORDER BY letter');
+		
+		if(!$query) return FALSE;
+		
+		return $query->result();
+	}
+	
+	function get_words_by_letter($letter){
+		$query = $this->db->query("SELECT * FROM dictionary WHERE ref_id = 0 AND word LIKE '".$letter.".%' ORDER BY word");
+		
+		if(!$query) return FALSE;
+		
+		return $query->result();
+	}
 }
 
 ?>

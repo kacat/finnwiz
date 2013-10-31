@@ -9,7 +9,6 @@
 			<?= $js_file ?>
 		<?php } ?>
 		
-		<link href="http://fonts.googleapis.com/css?family=Questrial:400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css" />
 		<?php foreach($css_files as $css_file){ ?>
 			<?= $css_file ?>
 		<?php } ?>

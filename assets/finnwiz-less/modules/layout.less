@@ -52,7 +52,7 @@ input, select, textarea{
 #page{
   margin-right: auto;
   margin-left: auto;
-  .rounded;
+  .border-radius;
   width: 900px;
   
   border: 1px solid @pageBorder;
@@ -77,7 +77,7 @@ input, select, textarea{
 
 code{
   background-color: @lightBlue;
-  .rounded(2px);
+  .border-radius(2px);
   padding: 5px;
 }
 
@@ -98,3 +98,18 @@ code{
   padding: 10px;
 }
 
+#hintbox{
+  position: absolute;
+  max-width: 250px;
+  
+  .hintbox-wrapper{
+    background-color: @white;
+    border-color: @lightgray;
+    .border-radius;
+    .shadow;
+    
+    padding: 10px;
+    font-size: 90%;
+    line-height: 18px;
+  }
+}
