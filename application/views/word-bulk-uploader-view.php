@@ -109,6 +109,9 @@
 					
 				<?php }else if($listitem['type'] == 'title'){ ?>
 					<h2><?= $listitem['title'] ?></h2>
+					
+				<?php }else if($listitem['type'] == 'text'){ ?>
+					<?= $listitem['text'] ?> 
 				<?php }else{ ?>
 					
 					<?php $i++; ?>
