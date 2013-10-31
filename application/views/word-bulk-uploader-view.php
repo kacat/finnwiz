@@ -69,15 +69,14 @@
 					array('type'=>'input','input'=>array('case'=>'translative','other'=>'plural')),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'comitative','other'=>'plural')),
-					array('type'=>'sep'),
-					
 					array('type'=>'input','input'=>array('case'=>'abessive')),
 					array('type'=>'input','input'=>array('case'=>'abessive','other'=>'plural')),
 					array('type'=>'sep'),
 					
-					array('type'=>'input','input'=>array('case'=>'instructive')),
-					array('type'=>'input','input'=>array('case'=>'instructive','other'=>'plural'))
+					array('type'=>'input','input'=>array('case'=>'instructive','other'=>'plural')),
+					array('type'=>'sep'),
+					array('type'=>'input','input'=>array('case'=>'comitative','other'=>'plural')),
+					array('type'=>'text','text'=>'- (+possessive suffix)'),
 					
 				)
 			?>
