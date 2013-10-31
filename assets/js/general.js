@@ -4,7 +4,7 @@ $(document).ready(function(){
 		if ($(this).attr('title')){
 			$(this).data('hint', $(this).attr('title'));
 			$(this).bind('mouseover', function(){ showHint($(this).data('hint'), $(this)); });
-			$(this).bind('mouseout', function(){ startHintCounter(); });
+			$(this).bind('mouseout', function(){ hideHint(); });
 			$(this).removeAttr('title');
 		}
 	});
@@ -25,9 +25,9 @@ var hintCounter;
 function showHint(text, target){
 	$('#hintbox').remove();
 	clearTimeout(hintCounter);
-	var position = getPosition(target);
+	//var position = getPosition(target);
 
-	var html = '<div id="hintbox" onmouseover="resetHintCounter();" onmouseout="startHintCounter();" class="hidden"><div class="hintbox-wrapper">';
+	var html = '<div id="hintbox" class="hidden"><div class="hintbox-wrapper">';
 	html += '<div class="hintbox-text">'+text+'</div>';
 	html += '<div class="hintbox-arrow"></div>';
 	html += '</div></div>';
@@ -35,20 +35,25 @@ function showHint(text, target){
 	$('body').append(html);
 	
 	
-	position.top -= $('#hintbox').height()+20;
-	position.left -= $('#hintbox').width()- 25 - target.width();
+	//position.top -= $('#hintbox').height()+15;
+	//position.left -= -5; //$('#hintbox').width()- 25 - target.width();
     
-    $('#hintbox').css({top: position.top, left: position.left});
+    //$('#hintbox').css({top: position.top, left: position.left});
     
     $('#hintbox').fadeIn('fast');
+    
+    $(document).mousemove(function(event) {
+    	$('#hintbox').css({top: event.pageY+10, left: event.pageX+10});
+    });
 }
 
 function startHintCounter(){
 	clearTimeout(hintCounter);
-	hintCounter = setTimeout('hideHint()',1000);
+	hintCounter = setTimeout('hideHint()',500);
 }
 
 function resetHintCounter(){
+	//$('#hintbox').stop(true,true).fadeIn('fast');
 	clearTimeout(hintCounter);
 }
 

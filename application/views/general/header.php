@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Finnwiz 1.0</title>
+		<title>FinnWIZ 1.0</title>
 		
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<?php foreach($js_files as $js_file){ ?>
@@ -14,10 +14,11 @@
 		<?php } ?>
 	</head>
 	<body>
-		<div id="wrapper">
-			<div id="header">
-				<div class="inside">
-					<h1>Finnwiz 1.0</h1>
-				</div>
-			</div>
-			<div style="height: 70px;"></div>
+		
+	<div id="header">
+		<div class="inside">
+			<ul class="main">
+				<li><a href="<?= site_url() ?>"><h1><span class="finn">Finn</span><span class="wiz">WIZ</span> <span class="version">1.0</span></h1></a></li>
+			</ul>
+		</div>
+	</div>

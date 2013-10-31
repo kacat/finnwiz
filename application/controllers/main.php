@@ -85,6 +85,26 @@ class Main extends CI_Controller {
 		echo $resp;
 	}
 	
+	public function suffixer($id = 0){
+		
+		$this->load->model('suffixer');
+		
+		if (!$id) $id = $this->suffixer->get_random_word();
+		
+		$test = $this->suffixer->load($id);
+		
+		$pagedata['orig'] = $test->word;
+		$pagedata['id'] = $test->id;
+		$pagedata['case'] = $test->case;
+		
+		$header_data = array('js'=>array('suffixer.js'));
+		$this->_header($header_data);
+		
+		
+		$this->load->view('suffixer-view', $pagedata);
+		$this->_footer();
+	}
+	
 	public function verb_uploader(){
 		$header_data = array('js'=>array('verb-uploader.js'));
 		
@@ -175,6 +195,9 @@ class Main extends CI_Controller {
 			$found = $this->word->find($word);
 			$pagedata['found'] = $found;
 		}
+
+		$wordlist = $this->word->get_wordlist();
+		$pagedata['wordlist'] = $wordlist;
 		
 		$this->_header();
 		$this->load->view('dictionary', $pagedata);

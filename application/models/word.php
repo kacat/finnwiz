@@ -85,7 +85,15 @@ class Word extends CI_Model {
 			if($inf_query) {
 				$inf_holder = array();
 				foreach($inf_query->result() as $inflection){
-					$inf_holder[] = $this->load($inflection->id, TRUE);
+					//$inf_holder[] = $this->load($inflection->id, TRUE);
+					
+					$inflection_data = $this->load($inflection->id, TRUE);
+					$index = '';
+					foreach($inflection_data->flags as $flag){
+						$index .= '_'.$flag->name;
+					}
+						
+					$inf_holder[$index] = $inflection_data;
 				}
 				if ($item->ref_id) $item->ref->inflections = (object) $inf_holder;
 				else $item->inflections = (object) $inf_holder;
@@ -98,7 +106,7 @@ class Word extends CI_Model {
 			$this->list[] = $item;
 		}
 
-		if (count($this->list) < 2){
+		if (count($this->list) == 1 ){
 			$this->id = $this->list[0]->id;
 			$this->item = $this->list[0];
 		}
@@ -173,6 +181,15 @@ class Word extends CI_Model {
 		
 		return $query->result();
 	}
+	
+	function get_wordlist(){
+		$query = $this->db->query("SELECT * FROM dictionary ORDER BY word");
+		
+		if(!$query) return FALSE;
+		
+		return $query->result();
+	}
+	
 }
 
 ?>

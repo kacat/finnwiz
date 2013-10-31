@@ -1,8 +1,10 @@
-			<div style="height: 70px;"></div>
-			
-			<div id="footer">
-				<div class="inside">Page rendered in <strong>{elapsed_time}</strong> seconds</div>
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="span12">Page rendered in <strong>{elapsed_time}</strong> seconds</div>
 			</div>
 		</div>
-	</body>
+	</div>
+
+</body>
 </html>

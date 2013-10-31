@@ -1,8 +1,12 @@
 // colors
 
-@white: #FFFFFF;
-@lightBlue: #D9EEF2;
-@lightgray: #CCCCCC;
+@white:         #FFFFFF;
+@lightBlue:     #D9EEF2;
+@lightgray:     #CCCCCC;
+@midgray:       #999999;
+@blue:          #0054a6;
+@yellow:        #ffffe0;
+@red:           #CC3300;
 
 @main-color: #333;
 
@@ -13,16 +17,59 @@
 @headerBackground: #999;
 
 @footerColor: @white;
-@footerBackground: #333;
+@footerBackground: #999;
 
-@inputBackground: rgba(220,220,220,0.6);
+@inputBackground: @yellow;
 @inputBorder: #CCC;
 @inputInvalidBorder: #C30;
+@inputHeight: 20px;
 
-@inputButtonBackground: #0054a6;
+@inputButtonBackground: @blue;
 @inputButtonBorder: darken(@inputButtonBackground, 10);
 @inputButtonColor: @white;
 
 @baseShadowPercent: 0.3;
+@baseLineHeight: 20px;
 
+@link-color: @blue;
+@link-color-hover: lighten(@blue,20);
+
+// GRID
+// --------------------------------------------------
+
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// 1200px min
+@gridColumnWidth1200:     70px;
+@gridGutterWidth1200:     30px;
+@gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + (@gridGutterWidth1200 * (@gridColumns - 1));
+
+// 768px-979px
+@gridColumnWidth768:      42px;
+@gridGutterWidth768:      20px;
+@gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + (@gridGutterWidth768 * (@gridColumns - 1));
+
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+// 1200px min
+@fluidGridColumnWidth1200:     percentage(@gridColumnWidth1200/@gridRowWidth1200);
+@fluidGridGutterWidth1200:     percentage(@gridGutterWidth1200/@gridRowWidth1200);
+
+// 768px-979px
+@fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
+@fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
 
