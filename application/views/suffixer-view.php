@@ -38,11 +38,30 @@
 			
 			<fieldset>
 				<legend><span class="entypo-pencil"></span>Solution</legend>
-				<input class="full-length" type="text" name="suffixer_translation" value=""/>
-				<input type="submit" value="Submit" />
+				
+				<input class="full-length" id="solution" type="text" name="suffixer_translation" value=""/>
+				<div class="correct-solution hidden">
+					<div class="correct-solution-container">
+						<span></span>correct solution
+					</div>
+				</div>
+				<div class="controls">
+					<div class="submit">
+						<a class="button" href="#" onclick="$('#suffixer-form').submit(); return false">Check</a>
+					</div>
+					<div class="next hidden">
+						<a class="button next" href="">Next <span></span></a>
+					</div>
+				</div>
 				<input type="hidden" name="id" value="<?= $word->id ?>" />
 			</fieldset>
 		</form>
 	</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#solution').focus();
+	})
+</script>

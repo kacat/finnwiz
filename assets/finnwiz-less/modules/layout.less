@@ -269,4 +269,64 @@ hr{
       text-shadow: none;
     }
   }
+  
+  .controls{
+    .submit{
+      text-align: center;
+    }
+    
+    .next{
+      text-align: center;
+      
+      a.button{
+        
+        background-color: #CCC;
+        color: #666;
+        border-color: #999;
+        text-shadow: 1px 1px 0 @white;
+        
+        span{
+          display: inline-block;
+          .entypo-right-open;
+          margin-left: 5px;
+          margin-right: 0px;
+        }
+        
+        &:hover{
+          background-color: @yellow;
+        }
+        
+      }
+      
+    }
+  }
+  
+  input#solution{
+    
+    .transition(all 0.2s);
+    
+    &.wrong{
+      border: 1px dotted @red;
+      color: @red;
+      background-color: lighten(@red,40); 
+    }
+    &.correct{
+      border: 1px solid @green;
+      color: @green;
+      background-color: lighten(@green,40); 
+    }
+  }
+  
+  .correct-solution-container{
+    margin: 10px 0px 20px;
+    border: 1px solid @infoBorder;
+    color: @infoBorder;
+    background-color: @yellow;
+    .border-radius(5px);
+    padding: 0px 10px;
+    line-height: 50px;
+    span{
+      .entypo-attention;
+    }
+  }
 }

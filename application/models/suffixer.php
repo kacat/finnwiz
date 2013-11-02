@@ -60,8 +60,8 @@ class Suffixer extends CI_Model {
 			}
 		}
 		
-		if ($result == 'right') return $result;
-		else return array($answer, $bestmatch, $bestmatch_percent);
+		if ($result == 'right') return array('result'=>TRUE);
+		else return array('result'=>FALSE,'bestmatch'=>$bestmatch,'score'=>$bestmatch_percent);
 	}
 
 	function get_random_word(){
