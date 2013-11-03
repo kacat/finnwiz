@@ -75,8 +75,8 @@ class Sentencer extends CI_Model {
 			
 		}
 		
-		if ($result == 'right') return $result;
-		else return array($bestmatch, $bestmatch_percent);
+		if ($result == 'right') return array('result'=>TRUE);
+		else return array('result'=>FALSE,'bestmatch'=>$bestmatch,'score'=>$bestmatch_percent);
 	}
 
 	function get_random_sentence(){

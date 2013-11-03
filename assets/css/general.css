@@ -2741,57 +2741,69 @@ hr {
   font-style: italic;
   text-shadow: none;
 }
-.suffixer h2 span.cases {
+.suffixer h2 span.cases,
+.sentencer h2 span.cases {
   color: #333333;
   font-size: 14px;
   text-shadow: none;
 }
-.suffixer h2 span.text {
+.suffixer h2 span.text,
+.sentencer h2 span.text {
   color: #999999;
   font-size: 12px;
   text-shadow: none;
 }
-.suffixer .controls .submit {
+.suffixer .controls .submit,
+.sentencer .controls .submit {
   text-align: center;
 }
-.suffixer .controls .next {
+.suffixer .controls .next,
+.sentencer .controls .next {
   text-align: center;
 }
-.suffixer .controls .next a.button {
+.suffixer .controls .next a.button,
+.sentencer .controls .next a.button {
   background-color: #CCC;
   color: #666;
   border-color: #999;
   text-shadow: 1px 1px 0 #ffffff;
 }
-.suffixer .controls .next a.button span {
+.suffixer .controls .next a.button span,
+.sentencer .controls .next a.button span {
   display: inline-block;
   margin-left: 5px;
   margin-right: 0px;
 }
-.suffixer .controls .next a.button span:before {
+.suffixer .controls .next a.button span:before,
+.sentencer .controls .next a.button span:before {
   font-family: 'entypo', sans-serif;
   content: "\e75e";
 }
-.suffixer .controls .next a.button:hover {
+.suffixer .controls .next a.button:hover,
+.sentencer .controls .next a.button:hover {
   background-color: #ffffe0;
 }
-.suffixer input#solution {
+.suffixer input#solution,
+.sentencer input#solution {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
-.suffixer input#solution.wrong {
+.suffixer input#solution.wrong,
+.sentencer input#solution.wrong {
   border: 1px dotted #cc3300;
   color: #cc3300;
   background-color: #ffb399;
 }
-.suffixer input#solution.correct {
+.suffixer input#solution.correct,
+.sentencer input#solution.correct {
   border: 1px solid #197b30;
   color: #197b30;
   background-color: #7ce494;
 }
-.suffixer .correct-solution-container {
+.suffixer .correct-solution-container,
+.sentencer .correct-solution-container {
   margin: 10px 0px 20px;
   border: 1px solid #c7c700;
   color: #c7c700;
@@ -2804,7 +2816,8 @@ hr {
   padding: 0px 10px;
   line-height: 50px;
 }
-.suffixer .correct-solution-container span:before {
+.suffixer .correct-solution-container span:before,
+.sentencer .correct-solution-container span:before {
   font-family: 'entypo', sans-serif;
   content: "\26a0";
 }

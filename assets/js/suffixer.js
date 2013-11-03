@@ -31,6 +31,7 @@ function checkSuffix(){
 			}
 			
 			$('.controls .next').removeClass('hidden');
+			$('.controls .next a').focus();
 		}
 	);
 }
