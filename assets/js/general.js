@@ -78,3 +78,18 @@ function reload_page(){
 function goto_page(url){
 	window.location = url;
 }
+
+function processResp(data){
+	var respdata = new Object();
+	try{ respdata = $.parseJSON(data); }
+	catch(err){
+		alert(data);
+	}
+	
+	if (respdata.error){
+		alert(respdata.error);
+		respdata = new Object();
+	}
+	
+	return respdata;
+}

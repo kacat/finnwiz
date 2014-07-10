@@ -330,3 +330,49 @@ hr{
     }
   }
 }
+
+.reader{
+	.clearfix;
+	
+	.page{
+		float: left;
+		width: 50%;
+		position: relative;
+		overflow: hidden;
+		
+		.content{
+			padding: 10px;
+		}
+		
+		p{
+			line-height: 20px;
+			margin: 10px 0px;
+
+			/*&:first-child{
+				margin-top: 0px;
+			}*/
+			
+			/*&:last-child{
+				margin-bottom: 0px;
+			}*/
+			
+			span{
+				line-height: 20px;
+				display: inline-block;
+				padding: 5px;
+			}
+			
+			span.selected{
+				
+				background-color: @yellow;
+			}
+		}
+	
+	}
+	
+	.floater{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+}

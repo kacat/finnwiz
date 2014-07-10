@@ -2821,3 +2821,49 @@ hr {
   font-family: 'entypo', sans-serif;
   content: "\26a0";
 }
+.reader {
+  *zoom: 1;
+}
+.reader:before,
+.reader:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.reader:after {
+  clear: both;
+}
+.reader .page {
+  float: left;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.reader .page .content {
+  padding: 10px;
+}
+.reader .page p {
+  line-height: 20px;
+  margin: 10px 0px;
+  /*&:first-child{
+				margin-top: 0px;
+			}*/
+
+  /*&:last-child{
+				margin-bottom: 0px;
+			}*/
+
+}
+.reader .page p span {
+  line-height: 20px;
+  display: inline-block;
+  padding: 5px;
+}
+.reader .page p span.selected {
+  background-color: #ffffe0;
+}
+.reader .floater {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}

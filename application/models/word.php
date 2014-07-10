@@ -182,14 +182,26 @@ class Word extends CI_Model {
 		return $query->result();
 	}
 	
-	function get_wordlist(){
-		$query = $this->db->query("SELECT * FROM dictionary ORDER BY word");
+	function get_wordlist($page = 1, $amount = 0, $filter = ''){
+		
+		$where = '';
+		$limit = '';
+		if ($amount){
+			$page = intval($page);
+			$limit = "LIMIT ".$amount. " OFFSET ".($amount*($page - 1));
+		}
+		
+		if ($filter){
+			$filter = mysql_real_escape_string($filter);
+			$where = "AND word LIKE '%".$filter."%'";
+		}
+		
+		$query = $this->db->query("SELECT * FROM dictionary WHERE active = 1 $where ORDER BY word $limit");
 		
 		if(!$query) return FALSE;
 		
 		return $query->result();
 	}
-	
 }
 
 ?>

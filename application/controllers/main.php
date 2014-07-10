@@ -180,6 +180,37 @@ class Main extends CI_Controller {
 		$this->load->view('word-bulk-uploader-view', $pagedata);
 		$this->_footer();
 	}
+
+	public function sentence_uploader($id = 0){
+		//$header_data = array('js'=>array('word-uploader.js'));
+		
+		$this->load->model('sentencer');
+		$pagedata = array();
+		
+		if($this->input->post()){
+			
+			//echo print_array($this->input->post());
+			if ($this->input->post('id')){
+				$this->sentence->update($this->input->post());
+				$pagedata['sentence_updated'] = TRUE;
+			}else{
+				$this->sentence->add($this->input->post());
+				$pagedata['sentence_added'] = TRUE;
+			}
+			
+		}
+
+		$sentence = FALSE;
+		if ($id){
+			$sentence = $this->sentencer->getSentence($id);
+		}
+		
+		$pagedata['sentence'] = $sentence;
+		
+		$this->_header();
+		$this->load->view('sentence-uploader-view', $pagedata);
+		$this->_footer();
+	}
 	
 	public function dictionary($word = ''){
 		
@@ -196,7 +227,9 @@ class Main extends CI_Controller {
 		$wordlist = $this->word->get_wordlist();
 		$pagedata['wordlist'] = $wordlist;
 		
-		$this->_header();
+		$header['js'] = array('jquery.tmpl.min.js');
+		
+		$this->_header($header);
 		$this->load->view('dictionary', $pagedata);
 		$this->_footer();
 	}
@@ -219,5 +252,17 @@ class Main extends CI_Controller {
 		$this->load->view('wordwiz', $pagedata);
 		$this->_footer();
 	}
+	
+	
+	public function bibook($book, $chapter, $page = 1){
 		
+		$this->load->model('reader');
+		
+		$pagedata['book'] = $this->reader->get_book($book, $chapter, $page);
+		
+		$this->_header();
+		$this->load->view('reader', $pagedata);
+		$this->_footer();
+		
+	}
 }

@@ -17,4 +17,12 @@ class Js_scripts extends Ajax_Controller {
 		$this->json_data['error'] = 0;
 		$this->json_data['info'] = $resp;
 	}
+	
+	public function get_wordlist(){
+		$this->load->model('word');
+		$dictionary_page = $this->word->get_wordlist($this->input->post('page'), 10, $this->input->post('search'));
+		
+		$this->json_data['error'] = 0;
+		$this->json_data['wordlist'] = $dictionary_page;
+	}
 }

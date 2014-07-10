@@ -89,14 +89,18 @@
 		
 			<fieldset>
 				<legend><span class="entypo-pencil"></span>Search</legend>
-				<input class="medium-input" type="text" name="word" value="<?= $word ?>" list="wordlist" placeholder="word" required autocomplete="off" />
+				<input class="medium-input" type="text" name="word" id="searchfield" value="<?= $word ?>" placeholder="word" required autocomplete="off"/>
 				<input type="submit" value="search" />
 				
-				<datalist id="wordlist">
-					<?php foreach($wordlist as $dicword){ ?>
-						<option value="<?= $dicword->word ?>" />
-					<?php } ?>
-				</datalist>
+				<div id="wordlist" class="hidden">
+					<ul class="word-container">
+						
+					</ul>
+					<div class="paging">
+						
+					</div>
+				</div>
+				
 			</fieldset>
 			
 		<?= form_close() ?>
@@ -193,3 +197,30 @@
 	
 	</div>
 </div>
+
+<script id="wordlistTemplate" type="text/x-jquery-tmpl">
+	
+	<li>
+		<a class="wordlist-item" href="#" data-word="${word}">${word}</a> 
+	</li>
+	
+</script>
+
+<script type="text/javascript">
+	var page = 1; 
+	$('#searchfield').keyup(function(){
+		$('#wordlist .word-container').html('');
+		$.post(
+			'<?= site_url('js-scripts/get-wordlist')?>',
+			{page: page, filter: $('#searchfield').val()},
+			function(resp){
+				var data = processResp(resp);
+				if(data.wordlist){
+					console.log(data.wordlist);
+					$('script#wordlistTemplate').tmpl(resp.wordlist).appendTo('#wordlist .word-container');
+					$('#wordlist').removeClass('hidden');
+				}
+			}
+		)
+	})
+</script>
